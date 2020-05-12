@@ -1,0 +1,18 @@
+Macro1:
+Loop
+{
+    Loop, 100
+    {
+        IfWinExist, ahk_exe lync.exe
+        {
+            Sleep, 300000
+            Random, RandomMouse1, -300, -200
+            Sleep, 300
+            Random, RandomMouse2, -120, -80
+            Sleep, 300
+            Click, %RandomMouse1%, %RandomMouse2%, 0
+            Sleep, 10
+        }
+    }
+}
+Return
