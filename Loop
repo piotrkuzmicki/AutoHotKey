@@ -1,0 +1,64 @@
+/*
+Run, C:\dokumenty.xlsx
+*/
+Loop, 1
+{
+    WinWaitActive, dokumenty.xlsx - Excel, , 1
+    Sleep, 333
+    WinActivate, dokumenty.xlsx - Excel
+    Sleep, 333
+    Sleep, 300
+    Send, {Down}
+    Sleep, 300
+    Send, {Control Down}{c}{Control Up}
+    Sleep, 1000
+    CLIP := Clipboard
+    2 := ".pdf"
+    WinActivate, Ready_â„˘ - Google Chrome
+    Sleep, 333
+    Click, 1838, 214 Left, 1
+    Sleep, 10
+    Sleep, 300
+    Send, {Backspace 30}
+    Sleep, 300
+    Send, {Delete 30}
+    Sleep, 1000
+    SendRaw, %CLIP%
+    Sleep, 1000
+    Send, {Enter}
+    Sleep, 1000
+    Click, 941, 333 Left, 2
+    Sleep, 10
+    Sleep, 1000
+    WinWaitActive, ahk_class Chrome_WidgetWin_1
+    Sleep, 333
+    Sleep, 300
+    Click, 740, 373 Left, 1
+    Sleep, 10
+    Sleep, 300
+    Click, 1362, 424 Left, 1
+    Sleep, 10
+    Sleep, 300
+    Result := StrReplace(CLIP,"/","")
+    rResult := StrReplace(Result,"\","")
+    /*
+    MsgBox, 0, , %rResult%
+    */
+    ControlClick, Edit1, ahk_class #32770,, Left, 1,  x708 y479 NA
+    Sleep, 10
+    Sleep, 1500
+    SendRaw, %rResult%
+    Sleep, 300
+    ControlClick, Edit1, ahk_class #32770,, Left, 1,  x708 y479 NA
+    Sleep, 10
+    Sleep, 300
+    SendRaw, %2%
+    Sleep, 1500
+    Send, {Enter}
+    Sleep, 1500
+    Click, 1414, 288 Left, 1
+    Sleep, 10
+    Sleep, 300
+    Click, 1203, 138, 0
+    Sleep, 10
+}
